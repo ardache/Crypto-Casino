@@ -30,9 +30,19 @@ app.use(session({
 
 // our first Route
 
-app.get('/index', (request, response, next) => {
-    response.render('index');
-});
+app.get('/index', (req, res, next) => {
+    if (req.session.currentUser) { // <== if there's user in the session (user is logged in)
+      next(); // ==> go to the next route ---
+    } else {                          //    |
+      res.redirect("/login");         //    |
+    }                                 //    |
+  }); // ------------------------------------                                
+  //     | 
+  //     V
+  app.get("/index", (req, res, next) => {
+    res.render("index");
+  });
+
 
 app.get('/slotmachine', (request, response, next) => {
   response.render('slotmachine');
@@ -57,11 +67,18 @@ app.post('/signup', (request, res, next) => {
     password: hashPass
   })
   .then(() => {
-    res.redirect("/index");
+    res.redirect("/login");
   })
   .catch(error => {
     console.log(error);
   })
+});
+
+  app.get("/logout", (req, res, next) => {
+  req.session.destroy((err) => {
+    // cannot access session here
+    res.redirect("/login");
+  });
 });
 
 app.post("/login", (req, res, next) => {
@@ -76,7 +93,7 @@ app.post("/login", (req, res, next) => {
     return;
   }
 
-  User.findOne({ "username": theUsername })
+  User.findOne({ username: theUsername })
   .then(user => {
       if (!user) {
         res.render("/login", {
@@ -87,11 +104,9 @@ app.post("/login", (req, res, next) => {
       if (bcrypt.compareSync(thePassword, user.password)) {
         // Save the login in the session!
         req.session.currentUser = user;
-        res.redirect("/");
+        res.redirect("/index");
       } else {
-        res.render("/login", {
-          errorMessage: "Incorrect password"
-        });
+        res.send('Algo malo salió');
       }
   })
   .catch(error => {
