@@ -5,6 +5,9 @@ const mongoose = require('mongoose');
 const bodyParser = require("body-parser");
 const session = require("express-session")
 const MongoStore = require("connect-mongo")(session);
+const User = require("./models/user");
+const bcrypt = require("bcrypt");
+const bcryptSalt = 10;
 
 mongoose
   .connect('mongodb+srv://casino:cryptocasino@cluster0-w3bno.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
@@ -26,10 +29,6 @@ app.use(session({
 }));
 
 // our first Route
-app.get('/signup', (request, response, next) => {
-    console.log(request);
-    response.send('<h1>Crypto Casino<h1>');
-});
 
 app.get('/index', (request, response, next) => {
     response.render('index');
@@ -42,9 +41,33 @@ app.get('/slotmachine', (request, response, next) => {
 app.get('/login', (request, response, next) => {
   response.render('login');
 });
+
+app.get("/signup", (req, res, next) => {
+  res.render("signup");
+});
+
+
+app.post('/signup', (request, res, next) => {
+  const username = request.body.username;
+  const password = request.body.password;
+  const salt     = bcrypt.genSaltSync(bcryptSalt);
+  const hashPass = bcrypt.hashSync(password, salt);
+  User.create({
+    username,
+    password: hashPass
+  })
+  .then(() => {
+    res.redirect("/index");
+  })
+  .catch(error => {
+    console.log(error);
+  })
+});
+
 app.post("/login", (req, res, next) => {
   const theUsername = req.body.username;
   const thePassword = req.body.password;
+  
 
   if (theUsername === "" || thePassword === "") {
     res.render("/login", {
@@ -75,6 +98,8 @@ app.post("/login", (req, res, next) => {
     next(error);
   })
 });
+   
+
 
   // Server Started
 app.listen(2000, () => {
