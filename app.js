@@ -18,7 +18,7 @@ app.set('view engine', 'hbs');
 
 //MIddleware
 app.use(bodyParser.urlencoded({extended:true}));
-app.use('/static', express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 
 app.use(session({
   secret: "basic-auth-secret",
