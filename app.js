@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const hbs = require("hbs");
 const mongoose = require('mongoose');
 const bodyParser = require("body-parser");
 const session = require("express-session")
@@ -16,8 +15,10 @@ mongoose
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'hbs');
+
 //MIddleware
 app.use(bodyParser.urlencoded({extended:true}));
+app.use('/static', express.static(__dirname + '/public'));
 
 app.use(session({
   secret: "basic-auth-secret",
@@ -40,7 +41,6 @@ app.use(session({
 app.get("/", (req, res, next) => {
   res.render("index");
 });
-
 
 app.get('/slotmachine', (request, response, next) => {
   response.render('slotmachine');
@@ -72,7 +72,7 @@ app.post('/signup', (request, res, next) => {
   })
 });
 
-  app.get("/logout", (req, res, next) => {
+app.get("/logout", (req, res, next) => {
   req.session.destroy((err) => {
     // cannot access session here
     res.redirect("/login");
@@ -112,7 +112,5 @@ app.post("/login", (req, res, next) => {
   })
 });
    
-  // Server Started
-app.listen(2000, () => {
-    console.log('yay crypto casino is working!')
-  });
+// Server Started
+app.listen(2000, () => console.log('yay crypto casino is working!'));
