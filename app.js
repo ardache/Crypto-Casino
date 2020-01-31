@@ -8,7 +8,7 @@ const User = require("./models/user");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
-const PORT = 2000
+const PORT = process.env.PORT || 2000
 
 mongoose
   .connect('mongodb+srv://casino:cryptocasino@cluster0-w3bno.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
