@@ -1,14 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
-  <meta charset="utf-8">
-  <title>My first view</title>
-</head>
-<body>
-  <h1>Crypto Casino</h1>
-  <h1>First View</h1>
+    <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+    <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Crypto Casino</title>
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:700, 600,500,400,300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+		<link rel="stylesheet" href="main.css">
 
-  <a href="/logout">Logout</a>
-</body>
+		<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/modules/data.js"></script>
+		<script src="main.js"></script>
+		
+		<script type="text/javascript">
+			$(function() {
+				$('.close').click(function() {
+					$('.ad').css('display', 'none');
+				})
+			})
+		</script>
+  <title>by Liz & Ardash</title>
+</head>
+
+<body>
+		<div class="header">
+			<div class="logo">
+				<i class="fa fa-btc"></i>
+				<span>Crypto Casino</span>
+			</div>
+			<a href="#" class="nav-trigger"><span></span></a>
+		</div>
+		<div class="side-nav">
+			<div class="logo">
+				<i class="fa fa-btc"></i>
+				<span>Crypto Casino</span>
+			</div>
+			<nav>
+				<ul>
+					<li>
+						<a href="#">
+							<span><i class="fa fa-user"></i></span>
+							<span>Users</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+
+							<span><i class="fa fa-info"></i></span>
+							<span>Profile</span>
+						</a>
+					</li>
+					<li class="active">
+						<a href="#">
+							<span><i class="fa fa-bar-chart"></i></span>
+							<span>Balance</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span><i class="fa fa-credit-card-alt"></i></span>
+							<span>Payments</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="main-content">
+			<div class="title">
+				Crypto Casino
+			</div>
+			<div class="main">
+				<div class="widget">
+					<div class="title">Slot Machine</div>
+					<div class="chart">
+						<img src="../assets/images.png">
+					</div>
+				</div>
+				<div class="widget">
+					<div class="title">Spine the wheel</div>
+					<div class="chart">
+						<img src="../assets/wheel-of-fortune.jpg">
+					</div>
+				</div>
+				<div class="widget">
+					<div class="title">Challenge</div>
+					<div class="chart">
+						<img src="../assets/man-plays-slot-machine-in-casino-vector-.jpg">
+					</div>
+				</div>
+			</div>
+		</div>
+    <a href="/logout">Logout</a>
+	</body>
 </html>
