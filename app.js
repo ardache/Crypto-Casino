@@ -30,18 +30,16 @@ app.use(session({
 
 // our first Route
 
-app.get('/index', (req, res, next) => {
-    if (req.session.currentUser) { // <== if there's user in the session (user is logged in)
-      next(); // ==> go to the next route ---
-    } else {                          //    |
-      res.redirect("/login");         //    |
-    }                                 //    |
-  }); // ------------------------------------                                
-  //     | 
-  //     V
-  app.get("/index", (req, res, next) => {
-    res.render("index");
-  });
+// app.get('/index', (req, res, next) => {
+//     if (req.session.currentUser) {
+//       next(); 
+//     } else {                  
+//       res.redirect("/login"); 
+//     }                         
+// });
+app.get("/", (req, res, next) => {
+  res.render("index");
+});
 
 
 app.get('/slotmachine', (request, response, next) => {
@@ -114,8 +112,6 @@ app.post("/login", (req, res, next) => {
   })
 });
    
-
-
   // Server Started
 app.listen(2000, () => {
     console.log('yay crypto casino is working!')
