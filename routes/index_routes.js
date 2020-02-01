@@ -7,11 +7,11 @@ router.get("/", (req, res, next) => {
       res.render('landing');
   });
 
+  const theUsername = req.session.currentUser.username;
+    User.findOne({ username: theUsername }).then((user) => {
+      res.render('index', user);
+    });
 router.get("/index", (req, res, next) => {
-const theUsername = req.session.currentUser.username;
-  User.findOne({ username: theUsername }).then((user) => {
-    res.render('index', user);
-  });
 });
 
   module.exports = router;
