@@ -68,7 +68,12 @@ router.post("/login", (req, res, next) => {
       if (bcrypt.compareSync(thePassword, user.password)) {
         // Save the login in the session!
         req.session.currentUser = user;
-        res.redirect("/index");
+        const redirect = req.query.redirect;
+        if (redirect) {
+          res.redirect(redirect);
+        } else {
+          res.redirect("/index");
+        }
       } else {
         res.send('Credenciales incorrectas');
       }
@@ -83,20 +88,19 @@ router.get("/qr", (req, res, next) => {
   res.render("qr");
 });
 
-router.get("/recarga", (req, res, next) => {
-  const theUsername = req.session.currentUser.username;
+router.get("/recarga", ensureAuthenticated, (req, res, next) => {
+  res.render("recarga"); 
+});
 
+function ensureAuthenticated(req, res, next) {
+  const user = req.session.currentUser;
   if (!user) {
-    res.render("/login", {
-      errorMessage: "El usuario no existe"
-    });
+    res.redirect(`/login?redirect=${req.originalUrl}`);
     return;
   } else {
-    User.findOne({ username: theUsername }).then((user) => {
-      res.render("recarga");
-    });
-  }  
-});
+    next()
+  } 
+}
 
 router.post("/recarga", (req, res, next) => {
   const theUsername = req.session.currentUser.username;
