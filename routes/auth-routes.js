@@ -61,7 +61,7 @@ router.post("/login", (req, res, next) => {
   .then(user => {
       if (!user) {
         res.render("/login", {
-          errorMessage: "The username doesn't exist."
+          errorMessage: "El usuario no existe"
         });
         return;
       }
@@ -70,7 +70,7 @@ router.post("/login", (req, res, next) => {
         req.session.currentUser = user;
         res.redirect("/index");
       } else {
-        res.send('Algo malo salió');
+        res.send('Credenciales incorrectas');
       }
   })
   .catch(error => {
@@ -84,7 +84,18 @@ router.get("/qr", (req, res, next) => {
 });
 
 router.get("/recarga", (req, res, next) => {
-  res.render("recarga");
+  const theUsername = req.session.currentUser.username;
+
+  if (!user) {
+    res.render("/login", {
+      errorMessage: "El usuario no existe"
+    });
+    return;
+  } else {
+    User.findOne({ username: theUsername }).then((user) => {
+      res.render("recarga");
+    });
+  }  
 });
 
 router.post("/recarga", (req, res, next) => {
