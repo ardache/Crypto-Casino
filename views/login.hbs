@@ -15,7 +15,10 @@
 
 <body>
   <div class="login-signup-form">
-    <h1>Crypto Casino</h1>
+    <div class="logo">
+				<i class="fa fa-btc"></i>
+				<span>Crypto Casino</span>
+			</div>
       <form action="/login" method="post" id="form">
           <h2 class="text-center">Log in</h2>       
           <div class="form-group">
@@ -39,33 +42,3 @@
 {{#if errorMessage }}
     <div class="error-message">{{ errorMessage }}</div>
   {{/if}}
-
-
-{{!-- <body>
-  <h1>welcome to our login</h1>
-  <h1>First View</h1>
-  <section>
-      <form action="/login" method="post" id="form">
-  <h2>Login</h2>
-
-  <label for="username">Username</label>
-  <input type="text" name="username">
-
-  <label for="password">Password</label>
-  <input type="password" name="password">
-
- 
-
-  <button>Sign in</button>
-
-  <p class="account-message">
-    Don't have an account? <a href="/signup">Sign up</a>
-  </p>
-</form>
-      </section>
-  </section>
-</body>
-</html>
- {{#if errorMessage }}
-    <div class="error-message">{{ errorMessage }}</div>
-  {{/if}} --}}

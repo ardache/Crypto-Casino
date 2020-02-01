@@ -79,4 +79,13 @@ router.post("/login", (req, res, next) => {
 });
 
 
+router.get("/qr", (req, res, next) => {
+  res.render("qr");
+});
+
+router.get("/recarga", (req, res, next) => {
+  res.render("recarga");
+});
+
+
 module.exports = router;
