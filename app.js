@@ -44,3 +44,5 @@ app.use('/', require('./routes/index_routes'));
    
 // Server Started
 app.listen(PORT, () => console.log('yay crypto casino is working!'));
+
+//test
