@@ -22,12 +22,12 @@ router.get("/signup", (req, res, next) => {
 });
 
 router.post('/signup', (request, res, next) => {
-  const username = request.body.username;
-  const password = request.body.password;
+  const {username, password, email } = request.body;
   const salt     = bcrypt.genSaltSync(bcryptSalt);
   const hashPass = bcrypt.hashSync(password, salt);
   User.create({
     username,
+    email,
     password: hashPass
   })
   .then(() => {
@@ -85,6 +85,29 @@ router.get("/qr", (req, res, next) => {
 
 router.get("/recarga", (req, res, next) => {
   res.render("recarga");
+});
+
+router.post("/recarga", (req, res, next) => {
+  const theUsername = req.session.currentUser.username;
+  const balance= req.body.balance;
+
+  User.findOneAndUpdate({ username: theUsername }, {$inc :{balance:balance}},{new: true})
+  .then(user => {
+      // if (!req.session.currentUser) {
+      //   res.render("/login", {
+      //     errorMessage: "The session have been finish"
+      //   });
+      //   return;
+      // } else 
+      // {
+        console.log(user)
+      // }
+
+  })
+  .catch(error => {
+    next(error);
+  })
+  res.redirect("/index");
 });
 
 
