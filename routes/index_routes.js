@@ -1,3 +1,6 @@
-app.get("/index", (req, res, next) => {
+// routes/index_routes.js
+const router = require("express").Router();
+
+router.get("/index", (req, res, next) => {
     res.render("index");
   });

@@ -39,7 +39,8 @@ app.get('/index', (req, res, next) => {
 });
 
 // Routes
-app.use('/', require('./routes/'))
+app.use('/', require('./routes/auth-routes'));
+app.use('/', require('./routes/index_routes'));
    
 // Server Started
 app.listen(PORT, () => console.log('yay crypto casino is working!'));

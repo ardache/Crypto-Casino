@@ -1,6 +1,5 @@
 // routes/auth-routes.js
-const express = require("express");
-const router = express.Router();
+const router = require("express").Router();
 
 // User model
 const User = require("../models/user");
@@ -10,20 +9,19 @@ const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
 
-app.get('/slotmachine', (request, response, next) => {
+router.get('/slotmachine', (request, response, next) => {
   response.render('slotmachine');
 });
 
-app.get('/login', (request, response, next) => {
+router.get('/login', (request, response, next) => {
   response.render('login');
 });
 
-app.get("/signup", (req, res, next) => {
+router.get("/signup", (req, res, next) => {
   res.render("signup");
 });
 
-
-app.post('/signup', (request, res, next) => {
+router.post('/signup', (request, res, next) => {
   const username = request.body.username;
   const password = request.body.password;
   const salt     = bcrypt.genSaltSync(bcryptSalt);
@@ -40,14 +38,14 @@ app.post('/signup', (request, res, next) => {
   })
 });
 
-app.get("/logout", (req, res, next) => {
+router.get("/logout", (req, res, next) => {
   req.session.destroy((err) => {
     // cannot access session here
     res.redirect("/login");
   });
 });
 
-app.post("/login", (req, res, next) => {
+router.post("/login", (req, res, next) => {
   const theUsername = req.body.username;
   const thePassword = req.body.password;
   
