@@ -4,14 +4,14 @@ const router = require("express").Router();
 const User = require("../models/user");
 
 router.get("/", (req, res, next) => {
-      res.render('landing');
-  });
+  res.render('landing');
+});
 
+router.get("/index", (req, res, next) => {
   const theUsername = req.session.currentUser.username;
     User.findOne({ username: theUsername }).then((user) => {
       res.render('index', user);
     });
-router.get("/index", (req, res, next) => {
 });
 
   module.exports = router;
