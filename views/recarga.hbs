@@ -1,57 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-<title>Fondear</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Login Form</title>
 <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Crypto Casino</title>
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:700, 600,500,400,300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+		<link rel="stylesheet" href="main.css">
+
+		<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/modules/data.js"></script>
+		<script src="main.js"></script>
+		
+		<script type="text/javascript">
+			$(function() {
+				$('.close').click(function() {
+					$('.ad').css('display', 'none');
+				})
+			})
+		</script>
 </head>
 
 <body>
-    <div class="login-signup-form">
-    <div class="logo">
-	<i class="fa fa-btc"></i>
-	<span>Crypto Casino</span>
-	</div>
-      <form action="/recarga" method="post" id="form">
-          <h2 class="text-center">Fondear Crypto Cuenta</h2>  
-          <div class="form-group">
-              <select id="account" name="cuenta">
-                <option value="">Cuenta de Cheques BBVA en pesos</option>
-            </select>
-        </div>     
-          <div class="form-group">
-              <select id="pesos" onchange="conversion()" name="monto">
-                <option value="0">Elige el monto a Fondear</option>
-                <option value="500">$500 MXP</option>
-                <option value="1000">$1,000 MXP</option>
-                <option value="2000">$1,500 MXP</option>
-                <option value="2000">$2,000 MXP</option>
-                <option value="2000">$2,500 MXP</option>
-                <option value="2000">$3,000 MXP</option>
-                <option value="2000">$3,500 MXP</option>
-                <option value="2000">$4,000 MXP</option>
-                <option value="4500">$4,500 MXP</option>
-            </select>
-          </div>
-          <div class="form-group">
-              <input type="label" name="balance" id="bitcoins"  required="required"> BTC
-          </div>
-          <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-block">Fondear</button>
-          </div>
-          <div class="clearfix">
-              <a href="/index" class="pull-right">Cancelar operación</a>
-          </div>        
-      </form>
-      <p class="text-center">ahora no <a href="/log in">Cancel</a></p>
-  </div>
+    <div class="header">
+			<div class="logo">
+				<i class="fa fa-btc"></i>
+				<span>Crypto Casino</span>
+			</div>
+			<a href="#" class="nav-trigger"><span></span></a>
+		</div>
+		<div class="side-nav">
+			<div class="logo">
+				<i class="fa fa-btc"></i>
+				<span>Crypto-Casino</span>
+			</div>
+			<nav>
+				<ul>
+					<li>
+						<a href="#">
+							<span><i class="fa fa-user"></i></span>
+							<span>Usuario</span>
+							<span>{{username}}</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span><i class="fa fa-info"></i></span>
+							<span>Nivel</span>
+							<span>{{level}}</span>
+						</a>
+					</li>
+					<li class="active">
+						<a href="#">
+							<span><i class="fa fa-bar-chart"></i></span>
+							<span>Saldo en BTC</span>
+							<span>{{balance}}</span>
+						</a>
+					</li>
+					<li>
+						<a href="/qr">
+							<span><i class="fa fa-credit-card-alt"></i></span>
+							<span>Fondear</span>
+						</a>
+					</li>
+					<li>
+						<a href="/tienda">
+							<span><i class="fas fa-shopping-bag"></i></span>
+							<span>Tienda</span>
+						</a>
+					</li>
+          <li>
+             <a href="/logout">
+             <span><i class="fa fa-power-off"></i></span>
+						 <span>Logout</span>
+             </a>
+          </li>
+				</ul>
+			</nav>
+		</div>
+		<div class="main-content">
+			<div class="title">
+				Crypto Casino
+			</div>
+			<div class="main">
+                <div class="login-signup-form">
+                    <div class="logo">
+                    <i class="fa fa-btc"></i>
+                    <span>Crypto Casino</span>
+                    </div>
+                    <form action="/recarga" method="post" id="form">
+                        <h2 class="text-center">Fondear Crypto Cuenta</h2>  
+                        <div class="form-group">
+                            <select id="account" name="cuenta">
+                                <option value="">Cuenta de Cheques BBVA en pesos</option>
+                            </select>
+                        </div>     
+                        <div class="form-group">
+                            <select id="pesos" onchange="conversion()" name="monto">
+                                <option value="0">Elige el monto a Fondear</option>
+                                <option value="500">$500 MXP</option>
+                                <option value="1000">$1,000 MXP</option>
+                                <option value="2000">$1,500 MXP</option>
+                                <option value="2000">$2,000 MXP</option>
+                                <option value="2000">$2,500 MXP</option>
+                                <option value="2000">$3,000 MXP</option>
+                                <option value="2000">$3,500 MXP</option>
+                                <option value="2000">$4,000 MXP</option>
+                                <option value="4500">$4,500 MXP</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="label" name="balance" id="bitcoins"  required="required" readonly> BTC
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Fondear</button>
+                        </div>
+                        <div class="clearfix">
+                            <a href="/index" class="pull-right">Cancelar operación</a>
+                        </div>        
+                    </form>
+                </div>
+
+
+			</div>
+		</div>
+
+    
   <script>
       let exchangeRate = 0.0000057; //@Liz Aqui va un API que obtenga el Tipo de Cambio del BTC
       function conversion() {

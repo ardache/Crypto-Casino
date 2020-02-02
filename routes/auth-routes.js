@@ -41,7 +41,7 @@ router.post('/signup', (request, res, next) => {
 router.get("/logout", (req, res, next) => {
   req.session.destroy((err) => {
     // cannot access session here
-    res.redirect("/login");
+    res.redirect("/");
   });
 });
 
@@ -89,7 +89,10 @@ router.get("/qr", (req, res, next) => {
 });
 
 router.get("/recarga", ensureAuthenticated, (req, res, next) => {
-  res.render("recarga"); 
+  const theUsername = req.session.currentUser.username;
+    User.findOne({ username: theUsername }).then((user) => {
+      res.render("recarga", user);
+    });
 });
 
 function ensureAuthenticated(req, res, next) {
@@ -123,6 +126,13 @@ router.post("/recarga", (req, res, next) => {
     next(error);
   })
   res.redirect("/index");
+});
+
+router.get("/tienda", ensureAuthenticated, (req, res, next) => {
+  const theUsername = req.session.currentUser.username;
+    User.findOne({ username: theUsername }).then((user) => {
+      res.render("tienda", user);
+    });
 });
 
 
