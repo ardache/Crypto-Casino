@@ -41,7 +41,7 @@
             </select>
           </div>
           <div class="form-group">
-              <input type="label" name="balance" id="bitcoins"  required="required"> BTC
+              <input type="label" name="balance" id="bitcoins"  required="required" readonly> BTC
           </div>
           <div class="form-group">
               <button type="submit" class="btn btn-primary btn-block">Fondear</button>
@@ -50,7 +50,6 @@
               <a href="/index" class="pull-right">Cancelar operación</a>
           </div>        
       </form>
-      <p class="text-center">ahora no <a href="/log in">Cancel</a></p>
   </div>
   <script>
       let exchangeRate = 0.0000057; //@Liz Aqui va un API que obtenga el Tipo de Cambio del BTC
