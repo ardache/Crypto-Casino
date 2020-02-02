@@ -23,6 +23,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "hbs": "^4.1.0",
+    "jquery": "^3.4.1",
     "mongoose": "^5.8.9",
     "mongoose-type-email": "^1.0.12"
   }

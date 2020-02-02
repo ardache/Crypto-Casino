@@ -9,8 +9,11 @@ const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
 
-router.get('/slotmachine', (request, response, next) => {
-  response.render('slotmachine');
+router.get("/slotmachine", ensureAuthenticated, (req, res, next) => {
+  const theUsername = req.session.currentUser.username;
+    User.findOne({ username: theUsername }).then((user) => {
+      res.render("slotmachine", user);
+    });
 });
 
 router.get('/login', (request, response, next) => {
