@@ -41,7 +41,7 @@ router.post('/signup', (request, res, next) => {
 router.get("/logout", (req, res, next) => {
   req.session.destroy((err) => {
     // cannot access session here
-    res.redirect("/login");
+    res.redirect("/");
   });
 });
 
@@ -89,7 +89,10 @@ router.get("/qr", (req, res, next) => {
 });
 
 router.get("/recarga", ensureAuthenticated, (req, res, next) => {
-  res.render("recarga"); 
+  const theUsername = req.session.currentUser.username;
+    User.findOne({ username: theUsername }).then((user) => {
+      res.render("recarga", user);
+    });
 });
 
 function ensureAuthenticated(req, res, next) {
