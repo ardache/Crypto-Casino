@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+    <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Crypto Casino</title>
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:700, 600,500,400,300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+		<link rel="stylesheet" href="main.css">
+
+		<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/modules/data.js"></script>
+		<script src="main.js"></script>
+		
+		<script type="text/javascript">
+			$(function() {
+				$('.close').click(function() {
+					$('.ad').css('display', 'none');
+				})
+			})
+		</script>
+</head>
+
+<body>
+		<div class="header">
+			<div class="logo">
+				<i class="fa fa-btc"></i>
+				<span>Crypto Casino</span>
+			</div>
+			<a href="#" class="nav-trigger"><span></span></a>
+		</div>
+		<div class="side-nav">
+			<div class="logo">
+				<i class="fa fa-btc"></i>
+				<span>Crypto-Casino</span>
+			</div>
+			<nav>
+				<ul>
+					<li>
+						<a href="#">
+							<span><i class="fa fa-user"></i></span>
+							<span>Usuario</span>
+							<span>{{username}}</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span><i class="fa fa-info"></i></span>
+							<span>Nivel</span>
+							<span>{{level}}</span>
+						</a>
+					</li>
+					<li class="active">
+						<a href="#">
+							<span><i class="fa fa-bar-chart"></i></span>
+							<span>Saldo en BTC</span>
+							<span>{{balance}}</span>
+						</a>
+					</li>
+					<li>
+						<a href="/qr">
+							<span><i class="fa fa-credit-card-alt"></i></span>
+							<span>Fondear</span>
+						</a>
+					</li>
+					<li>
+						<a href="/tienda">
+							<span><i class="fas fa-shopping-bag"></i></span>
+							<span>Tienda</span>
+						</a>
+					</li>
+          <li>
+             <a href="/logout">
+             <span><i class="fa fa-power-off"></i></span>
+						 <span>Logout</span>
+             </a>
+          </li>
+				</ul>
+			</nav>
+		</div>
+		<div class="main-content">
+			<div class="title">
+				Crypto Tienda 
+			</div>
+			<div class="main">
+				<div class="widget">
+					<div class="title">Tenis</div>
+					<div class="chart">
+						<img src="https://www.laguiadelvaron.com/wp-content/uploads/2016/07/yee.jpg">
+					</div>
+                    <button>Comprar</button>
+				</div>
+				<div class="widget">
+					<div class="title">Tesla</div>
+					<div class="chart">
+						<img src="https://images.mediotiempo.com/rXHjupmbH2mqDRmD6XVPUtwAyYI=/958x596/uploads/media/2020/01/21/boceto-tesla-model-version-hatchback.jpg">
+					</div>
+                    <button>Comprar</button>
+				</div>
+				<div class="widget">
+					<div class="title">Amazon</div>
+					<div class="chart">
+						<img src="https://images.livemint.com/img/2019/07/12/600x338/1148439107_1560085714465_1562911626353.jpg">
+					</div>
+                    <button>Comprar</button>
+				</div>
+                <div class="widget">
+					<div class="title">Avion Presidencial</div>
+					<div class="chart">
+						<img src="https://www.altonivel.com.mx/wp-content/uploads/2018/08/avion-presidencial.jpg">
+					</div>
+                        <button>Comprar</button>
+				</div>
+                <div class="widget">
+					<div class="title">papel de baño de oro</div>
+					<div class="chart">
+						<img src="https://cde.peru.com//ima/0/1/0/3/1/1031161/924x530/diez.jpg">
+					</div>
+                        <button>Comprar</button>
+				</div>
+                <div class="widget">
+					<div class="title">earpods de oro</div>
+					<div class="chart">
+						<img src="https://caviar.global/images/companies/1/news/caviar_airpods_pro_gold__photo4.jpg?1573632829293">
+					</div>
+                        <button>Comprar</button>
+				</div>
+			</div>
+		</div>
+   
+	</body>
+</html>

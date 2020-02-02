@@ -125,5 +125,12 @@ router.post("/recarga", (req, res, next) => {
   res.redirect("/index");
 });
 
+router.get("/tienda", ensureAuthenticated, (req, res, next) => {
+  const theUsername = req.session.currentUser.username;
+    User.findOne({ username: theUsername }).then((user) => {
+      res.render("tienda", user);
+    });
+});
+
 
 module.exports = router;
