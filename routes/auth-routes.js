@@ -8,7 +8,6 @@ const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
-
 router.get("/slotmachine", ensureAuthenticated, (req, res, next) => {
   const theUsername = req.session.currentUser.username;
     User.findOne({ username: theUsername }).then((user) => {
@@ -31,7 +30,10 @@ router.get("/signup", (req, res, next) => {
 });
 
 router.get("/store", (req, res, next) => {
-  res.render("store");
+  const theUsername = req.session.currentUser.username;
+    User.findOne({ username: theUsername }).then((user) => {
+      res.render("store", user);
+    });
 });
 
 router.post('/signup', (request, res, next) => {
@@ -98,7 +100,10 @@ router.post("/login", (req, res, next) => {
 
 
 router.get("/qr", (req, res, next) => {
-  res.render("qr");
+  const theUsername = req.session.currentUser.username;
+    User.findOne({ username: theUsername }).then((user) => {
+      res.render("qr", user);
+    });
 });
 
 router.get("/recarga", ensureAuthenticated, (req, res, next) => {
