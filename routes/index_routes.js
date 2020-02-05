@@ -4,7 +4,10 @@ const router = require("express").Router();
 const User = require("../models/user");
 
 router.get("/", (req, res, next) => {
-  res.render('landing');
+  let data = {
+    layout: false
+  }
+  res.render('landing', data);
 });
 
 router.get("/index", (req, res, next) => {

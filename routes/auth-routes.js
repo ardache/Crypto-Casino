@@ -17,11 +17,17 @@ router.get("/slotmachine", ensureAuthenticated, (req, res, next) => {
 });
 
 router.get('/login', (request, response, next) => {
-  response.render('login');
+  let data = {
+    layout: false
+  }
+  response.render('login', data);
 });
 
 router.get("/signup", (req, res, next) => {
-  res.render("signup");
+  let data = {
+    layout: false
+  }
+  res.render("signup", data);
 });
 
 router.get("/store", (req, res, next) => {
