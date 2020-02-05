@@ -22,7 +22,7 @@ code {
 }
 
 .well p {
-  font-size:
+  font-size: 10
 }
 
 .btn-group-justified {
@@ -65,7 +65,7 @@ header {
   margin-top: 10px;
   background-color: rgb(147, 220, 163);
   border-bottom: 10px solid #66D4FF;
-  border-top: 20px dashed #A4 8E4E;
+  border-top: 20px dashed #A48E4E;
   padding: 2em;
   color:#333;
   font-size: 25px;
