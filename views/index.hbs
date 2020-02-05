@@ -1,115 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
-    <meta charset="utf-8">
-	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Crypto Casino</title>
-		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:700, 600,500,400,300' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-		<link rel="stylesheet" href="main.css">
 
-		<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-		<script src="https://code.highcharts.com/highcharts.js"></script>
-		<script src="https://code.highcharts.com/modules/data.js"></script>
-		<script src="main.js"></script>
-		
-		<script type="text/javascript">
-			$(function() {
-				$('.close').click(function() {
-					$('.ad').css('display', 'none');
-				})
-			})
-		</script>
-</head>
-
-<body>
-		<div class="header">
-			<div class="logo">
-				<i class="fa fa-btc"></i>
-				<span>Crypto Casino</span>
-			</div>
-			<a href="#" class="nav-trigger"><span></span></a>
-		</div>
-		<div class="side-nav">
-			<div class="logo">
-				<i class="fa fa-btc"></i>
-				<span>Crypto-Casino</span>
-			</div>
-			<nav>
-				<ul>
-					<li>
-						<a href="#">
-							<span><i class="fa fa-user"></i></span>
-							<span>Usuario</span>
-							<span>{{username}}</span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<span><i class="fa fa-star"></i></span>
-							<span>Nivel</span>
-							<span>{{level}}</span>
-						</a>
-					</li>
-					<li class="active">
-						<a href="#">
-							<span><i class="fa fa-btc"></i></span>
-							<span>Saldo en BTC</span>
-							<span>{{balance}}</span>
-						</a>
-					</li>
-					<li>
-						<a href="/qr">
-							<span><i class="fa fa-qrcode"></i></span>
-							<span></span>
-							<span>Fondear</span>
-						</a>
-					</li>
-					<li>
-						<a href="/tienda">
-							<span><i class="fa fa-shopping-cart"></i></span>
-							<span></span>
-							<span>Tienda</span>
-						</a>
-					</li>
-          <li>
-             <a href="/logout">
-             <span><i class="fa fa-power-off"></i></span>
-						 <span></span>
-						 <span>Logout</span>
-             </a>
-          </li>
-				</ul>
-			</nav>
-		</div>
-		<div class="main-content">
-			<div class="title">
-				Crypto Casino
-			</div>
-			<div class="main">
-				<div class="widget">
-					<div class="title">Slot Machine</div>
-					<div class="chart">
-						<a href="/slotmachine"> <img src="/assets/images.png"> </a> 
-					</div>
-				</div>
-				<div class="widget">
-					<div class="title">Spine the wheel</div>
-					<div class="chart">
-						<img src="/assets/wheel-of-fortune.jpg">
-					</div>
-				</div>
-				<div class="widget">
-					<div class="title">Challenge</div>
-					<div class="chart">
-						<img src="/assets/man-plays-slot-machine-in-casino-vector-.jpg">
-					</div>
-				</div>
-			</div>
-		</div>
-   
-	</body>
-</html>
+<div class="main-content">
+    <div class="title">
+        Crypto Casino
+    </div>
+    <div class="main">
+        <div class="widget">
+            <div class="title">Slot Machine</div>
+            <div class="chart">
+                <a href="/slotmachine"> <img src="/assets/images.png"> </a> 
+            </div>
+        </div>
+        <div class="widget">
+            <div class="title">Spine the wheel</div>
+            <div class="chart">
+                <img src="/assets/wheel-of-fortune.jpg">
+            </div>
+        </div>
+        <div class="widget">
+            <div class="title">Challenge</div>
+            <div class="chart">
+                <img src="/assets/man-plays-slot-machine-in-casino-vector-.jpg">
+            </div>
+        </div>
+    </div>
+</div>
