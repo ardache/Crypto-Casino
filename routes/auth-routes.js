@@ -24,6 +24,10 @@ router.get("/signup", (req, res, next) => {
   res.render("signup");
 });
 
+router.get("/store", (req, res, next) => {
+  res.render("store");
+});
+
 router.post('/signup', (request, res, next) => {
   const {username, password, email } = request.body;
   const salt     = bcrypt.genSaltSync(bcryptSalt);
