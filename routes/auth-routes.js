@@ -69,8 +69,6 @@ router.post("/login", (req, res, next) => {
       errorMessage: "Please enter both, username and password to sign up."
     });
     return;
-  } else {
-    res.redirect("/login")
   } 
 
   User.findOne({ username: theUsername })
