@@ -142,5 +142,5 @@ gulp.task('server', ['build'], () => {
     livereload: true
   });
 
-  open('http://localhost:8080');
+  open('http://localhost:2000');
 });
