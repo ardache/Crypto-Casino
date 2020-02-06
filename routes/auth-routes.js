@@ -64,13 +64,12 @@ router.post("/login", (req, res, next) => {
   const theUsername = req.body.username;
   const thePassword = req.body.password;
   
-
   if (theUsername === "" || thePassword === "") {
     res.render("/login", {
       errorMessage: "Please enter both, username and password to sign up."
     });
     return;
-  }
+  } 
 
   User.findOne({ username: theUsername })
   .then(user => {
