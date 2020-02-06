@@ -22,10 +22,8 @@
   </head>
 
   <body>
-    <div class="header-line"></div>
-
-
-
+    <header>
+    <div class="header-line">
     <div id="randomize">
       <div class="container">
         <h1></h1>
@@ -71,15 +69,15 @@
           </div>
         
           <div class="btn-group btn-group-justified" role="group">
-            <button id="randomizeButton" type="button" class="btn btn-danger btn-lg">Shuffle</button>
+            <button id="randomizeButton" type="button" class="btn btn-danger btn-lg">Jugar</button>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-10 offset-sm-1"></div>
             <pre><code id="codeBlock2"></code></pre>
-          </div>
         </div>
       </div>
+    </div>
     </div>
     <script id="codeScript2">
 const btn = document.querySelector('#randomizeButton');
@@ -105,6 +103,6 @@ btn.addEventListener('click', () => {
   setTimeout(() => machine3.shuffle(5, onComplete), 1000);
 });
     </script>
-  
+  </header>
   </body>
 </html>
