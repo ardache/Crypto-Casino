@@ -153,4 +153,18 @@ router.get("/tienda", ensureAuthenticated, (req, res, next) => {
 });
 
 
+router.get("/search", ensureAuthenticated, (req, res, next) => {
+  const theUsername = req.session.currentUser.username;
+    User.findOne({ username: theUsername }).then((user) => {
+      res.render("search", user);
+    });
+});
+
+router.post("/confirmation", (req, res, next) => {
+  const theUsername = req.session.currentUser.username;
+    User.findOne({ username: theUsername }).then((user) => {
+      res.render("confirmation", user);
+    });
+});
+
 module.exports = router;
