@@ -1,0 +1,40 @@
+		<div class="main-content">
+			<div class="title">
+				Crypto Casino
+			</div>
+			<div class="main">
+                <div class="login-signup-form">
+                    <div class="logo">
+                    <i class="fa fa-btc"></i>
+                    <span>Crypto Casino</span>
+                    </div>
+                    <form action="/confirmation" method="post" id="form">
+                        <h2 class="text-center">Transferencia de Crypto Saldo</h2>  
+                        <div class="form-group">
+                            <select id="account" name="cuenta">
+                                <option value="">Crypto cuenta en bitcoins</option>
+                            </select>
+                        </div>     
+                        <div class="form-group">
+                            <input type="text" name="correo" id="correo"  required="required">correo
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="monto" id="bitcoins" onchange="guarda()"  required="required">BTC
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Transferir</button>
+                        </div>
+                        <div class="clearfix">
+                            <a href="/index" class="pull-right">Cancelar operación</a>
+                        </div>        
+                    </form>
+                </div>
+			</div>
+		</div>
+
+    
+  <script>
+      function guarda() {
+          const bitcoins = document.getElementById('bitcoins');
+      }
+  </script>

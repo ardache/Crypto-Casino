@@ -104,27 +104,40 @@ function onComplete(active){
   machineResult.push(this.active)
   if (machineResult.length == 3) {
     if (machineResult[0]== machineResult[1] && machineResult[0] == machineResult[2]) {
-      //console.log(machineResult + " Ganaste !!!")
-      fetch('/win', {
+      console.log(machineResult + " Ganaste !!!")
+      fetch('/recarga', {
         method: 'POST',
         body: {$inc :{balance:+1}}
       })
-      .then(res => res.text())
-      //.then(data => console.log(data))
+      .then(res => res.ok)
+      .then(data => console.log(data))
       .catch(err => console.error(err));
 
     } else {
       if(machineResult){
-        fetch('/lost', {
+        fetch('/recarga', {
         method: 'POST',
-        body: {$inc :{balance:-.0005}}
+        body: {$inc :{balance:-.0005}},
+        headers:{
+          'Content-Type': 'application/json'
+        } 
       })
-      .then(res => res.text())
-      //.then(data => console.log(data))
-      .catch(err => console.error(err));
+      .then(res => res.json())
       }
-      //console.log(machineResult + " Perdiste")
+      console.log(machineResult + " Perdiste")
       //let data = {$inc :{balance:-.0005}};
+      //console.log(typeof data)
+      fetch('/recarga', {
+        method: 'POST',
+        body: [{name:"kain"}],
+        headers:{
+          'Content-Type': 'application/json'
+        } 
+      })
+      .then(res => res.json())
+      //.then(res => res.text())
+      //.then(res => console.log(data))
+      //.catch(err => console.error(err));
     }
     machineResult= [];
   }
