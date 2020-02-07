@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./styles/style.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="./dist/jquery.slotmachine.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" type="text/css" />
+<!-- Custom styles for this template -->
+  <link href="/stylesheets/new-age.min.css" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -26,7 +28,7 @@
     <div class="header-line">
     <div id="randomize">
       <div class="container">
-        <h1></h1>
+        <h1 class="text-center" style="color:aliceblue" >Maquina traga monedas</h1>
 
         <div class="row">
           <div class="col-sm-4">
@@ -67,7 +69,10 @@
               </div>
             </div>
           </div>
-        
+        <div class="container" role="group">
+            <h4 style="color:aliceblue">Cada juego vale $ 0.0005 BTC</h4>
+            <h4 style="color:aliceblue">El premio es de $ 1 BTC</h4>
+            </div>
           <div class="btn-group btn-group-justified" role="group">
             <button id="randomizeButton" type="button" class="btn btn-danger btn-lg">Jugar</button>
           </div>
@@ -80,6 +85,7 @@
     </div>
     </div>
     <script id="codeScript2">
+      let machineResult = []
 const btn = document.querySelector('#randomizeButton');
 const results = {
   machine1: document.querySelector('#machine1Result'),
@@ -94,7 +100,19 @@ const machine2 = new SlotMachine(el2, { active: 1 });
 const machine3 = new SlotMachine(el3, { active: 2 });
 
 function onComplete(active){
-  results[this.element.id].innerText = `Index: ${this.active}`;
+  //results[this.element.id].innerText = `Index: ${this.active}`;
+  machineResult.push(this.active)
+  if (machineResult.length == 3) {
+    if (machineResult[0]== machineResult[1] && machineResult[0] == machineResult[2]) {
+      console.log(machineResult + " Ganaste !!!")
+      alert("Ganaste 1 BTC")
+      
+    } else {
+      console.log(machineResult + " Perdiste")
+
+    }
+    machineResult= [];
+  }
 }
 
 btn.addEventListener('click', () => {
