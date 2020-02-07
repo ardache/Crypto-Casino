@@ -8,6 +8,8 @@ const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
+let gamebalance=0;
+
 router.get("/slotmachine", ensureAuthenticated, (req, res, next) => {
   const theUsername = req.session.currentUser.username;
     User.findOne({ username: theUsername }).then((user) => {
@@ -117,27 +119,59 @@ function ensureAuthenticated(req, res, next) {
   } 
 }
 
+router.post("/lost", (req, res, next) => {
+  const theUsername = req.session.currentUser.username;
+  //gamebalance= req.body.balance;
+  gamebalance= -.0005
+console.log ("estamos en BE", req.body.balance)
+  User.findOneAndUpdate({ username: theUsername }, {$inc :{balance:gamebalance}},{new: true})
+  .then(user => {
+        console.log(user)
+  })
+  .catch(error => {
+    next(error);
+  })
+  res.render("slotmachine");
+});
+
+router.post("/win", (req, res, next) => {
+  const theUsername = req.session.currentUser.username;
+  //gamebalance= req.body.balance;
+  gamebalance= 1
+console.log ("estamos en BE", req.body.balance)
+  User.findOneAndUpdate({ username: theUsername }, {$inc :{balance:gamebalance}},{new: true})
+  .then(user => {
+        console.log(user)
+        alert("Ganaste 1 BTC !!!!")
+  })
+  .catch(error => {
+    next(error);
+  })
+  res.render("slotmachine");
+});
+
+
 router.post("/recarga", (req, res, next) => {
   const theUsername = req.session.currentUser.username;
-  //const balance= req.body.balance;
+  const balance= req.body.balance;
 console.log ("estamos en BE", req.body)
-  // User.findOneAndUpdate({ username: theUsername }, {$inc :{balance:balance}},{new: true})
-  // .then(user => {
-  //     // if (!req.session.currentUser) {
-  //     //   res.render("/login", {
-  //     //     errorMessage: "The session have been finish"
-  //     //   });
-  //     //   return;
-  //     // } else 
-  //     // {
-  //       console.log(user)
-  //     // }
+  User.findOneAndUpdate({ username: theUsername }, {$inc :{balance:balance}},{new: true})
+  .then(user => {
+      // if (!req.session.currentUser) {
+      //   res.render("/login", {
+      //     errorMessage: "The session have been finish"
+      //   });
+      //   return;
+      // } else 
+      // {
+        console.log(user)
+      // }
 
-  // })
-  // .catch(error => {
-  //   next(error);
-  // })
-  // res.redirect("/index");
+  })
+  .catch(error => {
+    next(error);
+  })
+  res.redirect("/index");
 });
 
 router.get("/tienda", ensureAuthenticated, (req, res, next) => {
