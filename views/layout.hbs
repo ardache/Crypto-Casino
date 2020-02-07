@@ -58,7 +58,7 @@
 						<a href="/index">
 							<span><i class="fa fa-btc"></i></span>
 							<span>Saldo en BTC</span>
-							<span>{{{trimString balance 0 7}}}</span>
+							<span>{{balance}}</span>
 						</a>
 					</li>
 					<li>
@@ -94,10 +94,7 @@
 		</div>
         {{{body}}}
 	</body>
-	<script>
-	Handlebars.registerHelper('trimString', function(passedString, startstring, endstring) {
-   var theString = passedString.substring( startstring, endstring );
-   return new Handlebars.SafeString(theString)
-});
-</script>
+
+		
+	
 </html>

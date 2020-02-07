@@ -119,25 +119,25 @@ function ensureAuthenticated(req, res, next) {
 
 router.post("/recarga", (req, res, next) => {
   const theUsername = req.session.currentUser.username;
-  const balance= req.body.balance;
+  //const balance= req.body.balance;
+console.log ("estamos en BE", req.body)
+  // User.findOneAndUpdate({ username: theUsername }, {$inc :{balance:balance}},{new: true})
+  // .then(user => {
+  //     // if (!req.session.currentUser) {
+  //     //   res.render("/login", {
+  //     //     errorMessage: "The session have been finish"
+  //     //   });
+  //     //   return;
+  //     // } else 
+  //     // {
+  //       console.log(user)
+  //     // }
 
-  User.findOneAndUpdate({ username: theUsername }, {$inc :{balance:balance}},{new: true})
-  .then(user => {
-      // if (!req.session.currentUser) {
-      //   res.render("/login", {
-      //     errorMessage: "The session have been finish"
-      //   });
-      //   return;
-      // } else 
-      // {
-        console.log(user)
-      // }
-
-  })
-  .catch(error => {
-    next(error);
-  })
-  res.redirect("/index");
+  // })
+  // .catch(error => {
+  //   next(error);
+  // })
+  // res.redirect("/index");
 });
 
 router.get("/tienda", ensureAuthenticated, (req, res, next) => {
@@ -161,6 +161,7 @@ router.post("/confirmation", (req, res, next) => {
       res.render("confirmation", user);
     });
 });
+
 
 
 module.exports = router;
