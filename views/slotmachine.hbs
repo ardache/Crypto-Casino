@@ -105,11 +105,27 @@ function onComplete(active){
   if (machineResult.length == 3) {
     if (machineResult[0]== machineResult[1] && machineResult[0] == machineResult[2]) {
       console.log(machineResult + " Ganaste !!!")
-      alert("Ganaste 1 BTC")
-      
+      fetch('/recarga', {
+        method: 'POST',
+        body: {$inc :{balance:+1}}
+      })
+      .then(res => res.ok)
+      .then(data => console.log(data))
+      .catch(err => console.error(err));
+
     } else {
       console.log(machineResult + " Perdiste")
-
+      let data = {$inc :{balance:-.0005}};
+      fetch('/recarga', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers:{
+          'Content-Type': 'application/json'
+        } 
+      })
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.error(err));
     }
     machineResult= [];
   }

@@ -16,10 +16,7 @@ router.get("/slotmachine", ensureAuthenticated, (req, res, next) => {
 });
 
 router.get('/login', (request, response, next) => {
-  let data = {
-    layout: false
-  }
-  response.render('login', data);
+  response.render('login', {layout: false});
 });
 
 router.get("/signup", (req, res, next) => {
@@ -82,14 +79,12 @@ router.post("/login", (req, res, next) => {
       if (bcrypt.compareSync(thePassword, user.password)) {
         // Save the login in the session!
         req.session.currentUser = user;
-        const redirect = req.query.redirect;
-        if (redirect) {
-          res.redirect(redirect);
-        } else {
-          res.redirect("/index");
-        }
+        res.redirect("/index");
       } else {
-        res.send('Credenciales incorrectas');
+        let data = {
+          errorMessage: "El usuario no existe"
+        }
+        res.render("login", {data, layout: false});
       }
   })
   .catch(error => {

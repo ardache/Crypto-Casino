@@ -75,10 +75,16 @@
           </div>        
       </form>
       <p class="text-center">¿No tienes cuenta? <a href="/signup">Crear cuenta</a></p>
+          {{#if data.errorMessage }}
+            <div class="error-message">{{data.errorMessage}}</div>
+          {{/if}}
   </div>
   </header>
 </body>
 </html>
-{{#if errorMessage }}
-    <div class="error-message">{{ errorMessage }}</div>
-  {{/if}}
+
+<script>
+  setTimeout(() => {
+    errorMsg.style.display = 'none'
+  },5000)
+</script>
