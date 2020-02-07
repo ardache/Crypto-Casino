@@ -58,7 +58,7 @@
 						<a href="/index">
 							<span><i class="fa fa-btc"></i></span>
 							<span>Saldo en BTC</span>
-							<span>{{balance}}</span>
+							<span>{{{trimString balance 0 7}}}</span>
 						</a>
 					</li>
 					<li>
@@ -70,7 +70,7 @@
 					</li>
 					<li>
 						<a href="/search">
-							<span><i class="fa fa-coin"></i></span>
+							<span><i class="fa fa-paper-plane"></i></span>
 							<span></span>
 							<span>Transferir</span>
 						</a>
@@ -94,4 +94,10 @@
 		</div>
         {{{body}}}
 	</body>
+	<script>
+	Handlebars.registerHelper('trimString', function(passedString, startstring, endstring) {
+   var theString = passedString.substring( startstring, endstring );
+   return new Handlebars.SafeString(theString)
+});
+</script>
 </html>
