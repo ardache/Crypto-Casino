@@ -4,7 +4,7 @@
 * {
     box-sizing: border-box;
     font-family: Raleway;
-    color: #777;
+    color: whitesmoke;
 }
 
 html, body {
@@ -27,7 +27,7 @@ html, body {
 .section-header {
     font-family: 'Anton', cursive;
     font-weight: normal;
-    color: #333;
+    color:whitesmoke;
     text-align: center;
     font-size: 2.5em;
 }
@@ -61,7 +61,7 @@ html, body {
     text-align: center;
     font-weight: bold;
     font-size: 1.5em;
-    color: #333;
+    color: whitesmoke;
     margin-bottom: 15px;
     margin-top:50px;
    
@@ -79,7 +79,7 @@ html, body {
 
 .shop-item-price {
     flex-grow: 1;
-    color: #333;
+    color: whitesmoke;
 }
 
 .shop-items {
@@ -93,7 +93,7 @@ html, body {
 .cart-header {
     font-weight: bold;
     font-size: 1.25em;
-    color: #333;
+    color: whitesmoke;
 }
 
 .cart-column {
@@ -116,7 +116,7 @@ html, body {
 .cart-price {
     width: 20%;
     font-size: 1.2em;
-    color: #333;
+    color: whitesmoke;
 }
 
 .cart-quantity {
@@ -124,7 +124,7 @@ html, body {
 }
 
 .cart-item-title {
-    color: #333;
+    color: whitesmoke;
     margin-left: .5em;
     font-size: 1.2em;
 }
@@ -153,7 +153,7 @@ html, body {
     border-radius: 5px;
     border: 1px solid #56CCF2;
     background-color: #eee;
-    color: #333;
+    color: black;
     padding: 0;
     text-align: center;
     font-size: 1.2em;
@@ -177,12 +177,12 @@ html, body {
 .cart-total-title {
     font-weight: bold;
     font-size: 1.5em;
-    color: black;
+    color: whitesmoke;
     margin-right: 20px;
 }
 
 .cart-total-price {
-    color: #333;
+    color: whitesmoke;
     font-size: 1.1em;
 }
 
