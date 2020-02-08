@@ -185,17 +185,39 @@ router.get("/tienda", ensureAuthenticated, (req, res, next) => {
 router.get("/search", ensureAuthenticated, (req, res, next) => {
   const theUsername = req.session.currentUser.username;
     User.findOne({ username: theUsername }).then((user) => {
-      res.render("search", user);
+      res.render("search", {user});
     });
 });
 
 router.post("/confirmation", (req, res, next) => {
   const theUsername = req.session.currentUser.username;
+  const uTrans= req.body.correo;
+  const bitcoins= req.body.monto;
     User.findOne({ username: theUsername }).then((user) => {
-      res.render("confirmation", user);
+      User.findOne({ username: uTrans }).then((transfer) => {
+        if (transfer) {
+        res.render("confirmation", {user, transfer, bitcoins});
+        } else {
+          res.redirect("/search")
+        }
+      });
     });
 });
 
+
+router.post("/save", ensureAuthenticated, (req, res, next) => {
+  const uTrans= req.body.correo;
+  const balance= req.body.bitcoins;
+console.log ("estamos en BE", req.body)
+  User.findOneAndUpdate({ username: uTrans }, {$inc :{balance:balance}},{new: true})
+  .then(user => {
+        console.log(user)
+  })
+  .catch(error => {
+    next(error);
+  })
+  res.redirect("/index");
+});
 
 
 module.exports = router;

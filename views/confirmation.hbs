@@ -11,19 +11,17 @@
                     <form action="/save" method="post" id="form">
                         <h2 class="text-center">Confirmacion de Trasnferencia de Bitcoins</h2>  
                         <div class="form-group">
-                            <select id="account" name="cuenta" readonly>
+                            Cuenta: <select id="account" name="cuenta" readonly>
                                 <option value="">Crypto cuenta en bitcoins</option>
                             </select>
                         </div>     
                         <div class="form-group">
-                            <input type="text" name="correo" id="correo"  required="required" placeholder={{email}} readonly>
+                            Usuario: <input type="text" name="correo" id="correo" placeholder="{{transfer.username}}" readonly>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="nombre" id="name"  required="required" placeholder={{username}} readonly>
+                            Bitcoins: <input type="text" name="bitcoins" id="bitcoins"  placeholder="{{bitcoins}}" readonly> 
                         </div>
-                        <div class="form-group">
-                            <input type="text" name="monto" id="bitcoins"  required="required" placeholder=bitcoins readonly>
-                        </div>
+                        <br>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block">Confirmar transferencia</button>
                         </div>
