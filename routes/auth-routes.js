@@ -205,18 +205,27 @@ router.post("/confirmation", (req, res, next) => {
 });
 
 
-router.post("/save", ensureAuthenticated, (req, res, next) => {
-  const uTrans= req.body.correo;
-  const balance= req.body.bitcoins;
+router.post("/save", (req, res, next) => {
+  const theUsername = req.session.currentUser.username;
+  const userT= req.body.benef;
+  const balanceT= req.body.btc;
 console.log ("estamos en BE", req.body)
-  User.findOneAndUpdate({ username: uTrans }, {$inc :{balance:balance}},{new: true})
+
+User.findOneAndUpdate({ username: theUsername }, {$inc :{balance:-balanceT}},{new: true})
   .then(user => {
         console.log(user)
-  })
+        User.findOneAndUpdate({ username: userT }, {$inc :{balance:balanceT}},{new: true})
+        .then(user => {
+              console.log(user)
+        })
+        .catch(error => {
+          next(error);
+        })
+        res.redirect("/index");
+        })
   .catch(error => {
     next(error);
   })
-  res.redirect("/index");
 });
 
 

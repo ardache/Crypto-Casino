@@ -11,15 +11,15 @@
                     <form action="/save" method="post" id="form">
                         <h2 class="text-center">Confirmacion de Trasnferencia de Bitcoins</h2>  
                         <div class="form-group">
-                            Cuenta: <select id="account" name="cuenta" readonly>
-                                <option value="">Crypto cuenta en bitcoins</option>
+                            Cuenta: <select id="account" name="acount" readonly>
+                                <option value="crypaccount">Crypto cuenta en bitcoins</option>
                             </select>
                         </div>     
                         <div class="form-group">
-                            Usuario: <input type="text" name="correo" id="correo" placeholder="{{transfer.username}}" readonly>
+                            Beneficiario: <input type="text" name="benef" id="userB" value="{{transfer.username}}" readonly>
                         </div>
                         <div class="form-group">
-                            Bitcoins: <input type="text" name="bitcoins" id="bitcoins"  placeholder="{{bitcoins}}" readonly> 
+                            Bitcoins: <input type="text" name="btc" id="bitcoins"  value="{{bitcoins}}" readonly> 
                         </div>
                         <br>
                         <div class="form-group">
