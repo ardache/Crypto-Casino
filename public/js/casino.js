@@ -31,7 +31,19 @@ if(document.readyState == "loading") {
   }
   
   function purchaseClicked() {
-    alert('Thank you for your purchase.');
+    const ctotal = document.getElementsByClassName('cart-total-price')[0].innerText
+  
+    if(ctotal){
+      fetch('/store', {
+      method: 'POST',
+      body: JSON.stringify(ctotal)
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(err => console.error(err));
+    }
+
+    alert('Thank you for your purchase of ' + ctotal + " btc");
     const cartItems = document.getElementsByClassName('cart-items')[0];
   
     while(cartItems.hasChildNodes()) {
