@@ -16,10 +16,10 @@
                             </select>
                         </div>     
                         <div class="form-group">
-                            <input type="text" name="correo" id="correo"  required="required">correo
+                            <input type="text" name="correo" id="correo"  required="required" placeholder="Usuario">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="monto" id="bitcoins" onchange="guarda()"  required="required">BTC
+                            <input type="text" name="monto" id="monto"  required="required" placeholder="Bitcoins">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block">Transferir</button>
@@ -31,10 +31,10 @@
                 </div>
 			</div>
 		</div>
-
-    
   <script>
       function guarda() {
-          const bitcoins = document.getElementById('bitcoins');
+          const bitcoins = document.getElementById('monto');
+          const correo = document.getElementById('correo');
+          console.log(correo)
       }
   </script>
