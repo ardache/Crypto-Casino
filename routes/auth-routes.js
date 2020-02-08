@@ -229,4 +229,20 @@ User.findOneAndUpdate({ username: theUsername }, {$inc :{balance:-balanceT}},{ne
 });
 
 
+
+router.post("/store", (req, res, next) => {
+  const theUsername = req.session.currentUser.username;
+  let storebalance= req.body;
+  storebalance= -.6341 //remover cuando funcione fetch
+console.log ("estamos en BE store", req.body)
+  User.findOneAndUpdate({ username: theUsername }, {$inc :{balance:storebalance}},{new: true})
+  .then(user => {
+        console.log(user)
+  })
+  .catch(error => {
+    next(error);
+  })
+  res.redirect("/store");
+});
+
 module.exports = router;
